@@ -3620,9 +3620,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.19339739
-  m_Height: 0.5728893
+  m_Height: 0.48987326
   m_Direction: 1
-  m_Center: {x: 0.000272731, y: 0.21355534, z: 0}
+  m_Center: {x: 0.000272731, y: 0.25506338, z: 0}
 --- !u!4 &1075011189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4454296243310227670, guid: 812a3b296c66ec1408cf631b5d2f5470, type: 3}
@@ -4656,7 +4656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1428561866
 MonoBehaviour:
   m_ObjectHideFlags: 0

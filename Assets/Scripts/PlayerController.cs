@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
     public void LoadNextScene()
     {
         SceneManager.LoadScene("GAMEOVER");
+        Cursor.visible = true;
     }
 
     private void OnCollisionEnter(Collision collision)

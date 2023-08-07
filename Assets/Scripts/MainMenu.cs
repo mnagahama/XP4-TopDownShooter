@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene("Game");
+        Cursor.visible = false;
     }
 
     public void Quit()
@@ -18,5 +19,7 @@ public class MainMenu : MonoBehaviour
     public void Return()
     {
         SceneManager.LoadScene("Menu");
+        Cursor.visible = true;
+
     }
 }

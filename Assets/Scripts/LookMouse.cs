@@ -10,7 +10,6 @@ public class LookMouse : MonoBehaviour
     {
         mainCam = GameObject.FindObjectOfType<Camera>();
 
-        Cursor.visible = false;
     }
 
     void Update()
