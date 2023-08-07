@@ -1,0 +1,6 @@
+Materiais utilizados no projeto:
+- Kiwi: Cute Low Poly Animal
+- Assets do cenario: Kenney Platformer Kit
+- Alguns scripts foram reutilizados de projetos antigos
+- Chatgpt para adaptar os scripts ao jogo
+ 

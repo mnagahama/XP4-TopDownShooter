@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/CapsuleShooter.unity
+    guid: 2f8736e77fb7c544399fc20efa1f8c6e
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/CapsuleShooter 1.unity
+    guid: 9b47dc68d858b7244a9c36a75bbd4b4f
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 7aaaf8bb5372e304baa6d11a54c01c35
+  - enabled: 1
+    path: Assets/Scenes/GAMEOVER.unity
+    guid: 687dc846416a33647aafcb1c110d3efd
+  m_configObjects: {}
