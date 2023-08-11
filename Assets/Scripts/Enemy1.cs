@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy1 : MonoBehaviour
 {
     Rigidbody rb;
     PlayerController playerReference;
-    public float movespeed = 3;
-    public int points = 1;
+    public float movespeed = 2;
+    public int points = 3;
+    public int health = 3;
 
     void Start()
     {
@@ -19,6 +20,11 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         transform.LookAt(playerReference.transform.position);
+        if (health <= 0)
+        {
+            ScoreManager.score += 3;
+            Destroy(this.gameObject);
+        }
 
     }
 
@@ -30,9 +36,9 @@ public class Enemy : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bullet")
         {
-            ScoreManager.score += 1;
-            Destroy(collision.gameObject);
-            Destroy(this.gameObject);
+           
+            //Destroy(collision.gameObject);
+            health--;
         }
     }
 

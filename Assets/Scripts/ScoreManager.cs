@@ -4,29 +4,16 @@ using TMPro;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
-{
-    public int score = 0;
-    
-
+{   
     public TextMeshPro scoreText;
+    public static int score = 0;
     void Start()
     {
        
     }
     void Update()
     {
-        
+        scoreText.text = "Score: " + score;
     }
 
-    public void IncreaseScore(int points)
-    {
-        score += points; // Aumente a pontuação com a quantidade de pontos especificada
-        UpdateScoreText(); // Atualize o componente TextMeshPro com a nova pontuação
-    }
-
-    // Método para atualizar o componente TextMeshPro com a nova pontuação
-    void UpdateScoreText()
-    {
-        scoreText.text = "Score: " + score.ToString();
-    }
 }

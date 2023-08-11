@@ -12,17 +12,18 @@ public class PlayerController : MonoBehaviour
     Vector3 moveInput;
     Animator animator;
     public GunControl gun;
-    public GameObject bullet;
+    public GameObject bullet, gameOver;
     public float shootSpeed = 25;
 
     public TextMeshPro healthText;
-    public int health = 3;
+    public static int health = 3;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        gameOver.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,14 +32,14 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        healthText.text = "Vida: " + health;
+        healthText.text = "Life: " + health;
 
         moveInput = new Vector3(x, 0, z);
 
         if (moveInput != Vector3.zero)
         {
             animator.SetBool("isWalking", true);
-            //transform.forward = Vector3.Slerp(transform.forward, moveInput, Time.deltaTime * 10);
+         
         }
         else
         {
@@ -62,19 +63,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    /*IEnumerator waiter()
-    {
-        yield return new WaitForSeconds(1);
-
-        LoadNextScene();
-    }*/
-
-    public void LoadNextScene()
-    {
-        SceneManager.LoadScene("GAMEOVER");
-        Cursor.visible = true;
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Barril")
@@ -82,11 +70,9 @@ public class PlayerController : MonoBehaviour
             health--;
             if (health <= 0)
             {
-                //StartCoroutine(waiter());
-                LoadNextScene();
+                gameOver.SetActive(true);
             }       
            
-
         }
 
     }
