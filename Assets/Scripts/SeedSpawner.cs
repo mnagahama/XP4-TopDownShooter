@@ -9,7 +9,11 @@ public class SeedSpawner : MonoBehaviour
     
 
     [SerializeField]
-    private float seedInterval = 3f;
+    private float seedInterval = 1f;
+    private float currentSpawnInterval;
+
+    private int maxSeeds = 4;
+    private int currentSeeds = 0;
 
     void Start()
     {
@@ -19,22 +23,25 @@ public class SeedSpawner : MonoBehaviour
 
     void Update()
     {
-        /*if (ScoreManager.score >= 10)
+         if(ScoreManager.score >= 10)
         {
-            currentSpawnInterval = enemyInterval / 2f;
-            currentSpawn2Interval = enemy2Interval / 2f;
-        }*/
+            currentSpawnInterval = seedInterval / 2f;
+        }
     }
 
     void SpawnSeed()
     {
-        if (PlayerController.currentAmmo != 5)
+        if (currentSeeds <= maxSeeds && PlayerController.currentAmmo != 5)
         {
             int index = Random.Range(0, spawnPoints.Length);
             Instantiate(seed, spawnPoints[index].position, Quaternion.identity);
-
+            currentSeeds++;
         }
 
+    }
+    public void SeedDestroyed()
+    {
+        currentSeeds--;
     }
 
 }

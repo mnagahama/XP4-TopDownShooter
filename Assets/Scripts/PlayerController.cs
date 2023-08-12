@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip audioClip;
 
+    public RestartGame restartGame;
+    public SeedSpawner seedSpawner;
 
     void Start()
     {
@@ -73,6 +75,11 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            restartGame.Restart();
+        }
+
     }
     private void FixedUpdate()
     {
@@ -107,6 +114,7 @@ public class PlayerController : MonoBehaviour
         {
             ReloadAmmo();
             Destroy(other.gameObject);
+            seedSpawner.SeedDestroyed();
         }
     }
 

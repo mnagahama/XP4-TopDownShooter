@@ -16,6 +16,8 @@ public class EnemySpawner : MonoBehaviour
     private float currentSpawnInterval;
     private float currentSpawn2Interval;
 
+
+
     void Start()
     {
         InvokeRepeating("SpawnEnemies", 3, enemyInterval);
@@ -29,12 +31,13 @@ public class EnemySpawner : MonoBehaviour
             currentSpawnInterval = enemyInterval / 2f;
             currentSpawn2Interval = enemy2Interval / 2f;
         }
+
     }
 
     void SpawnEnemies()
-    {       
-            int index = Random.Range(0, spawnPoints.Length);
-            Instantiate(enemy, spawnPoints[index].position, Quaternion.identity);
+    {
+        int index = Random.Range(0, spawnPoints.Length);
+        Instantiate(enemy, spawnPoints[index].position, Quaternion.identity);
 
     }
 
