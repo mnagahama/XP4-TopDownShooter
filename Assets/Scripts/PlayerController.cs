@@ -16,11 +16,9 @@ public class PlayerController : MonoBehaviour
     public float shootSpeed = 25;
 
    public Text healthText;
-   // public TextMeshProUGUI healthText;
     public static int health = 3;
 
     public Text ammoText;
-   // public TextMeshProUGUI ammoText;
     public static int currentAmmo;
     public static int maxAmmo;
    
@@ -50,8 +48,8 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-         healthText.text = "Life: " + health;
-        //ammoText.text = "Seed: " + currentAmmo + "/" + maxAmmo;
+        healthText.text = "Life: " + health;
+        ammoText.text = "Seed: " + currentAmmo + "/" + maxAmmo;
 
         moveInput = new Vector3(x, 0, z);
 
@@ -71,7 +69,7 @@ public class PlayerController : MonoBehaviour
             audioSource.clip = audioClip;
             audioSource.Play();
             currentAmmo--;
-            UpdateAmmoCount();
+            //UpdateAmmoCount();
 
         }
 
@@ -96,12 +94,13 @@ public class PlayerController : MonoBehaviour
             if (health <= 0)
             {
                 gameOver.SetActive(true);
+                Time.timeScale = 0;
             }
 
         }
 
     }
-    /*
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Semente")
@@ -114,13 +113,14 @@ public class PlayerController : MonoBehaviour
     public void ReloadAmmo()
     {
         currentAmmo = maxAmmo;
-    }*/
 
+    }
+    /*
     public void UpdateAmmoCount()
     {
         ammoText.text = "Seed: " + currentAmmo + "/" + maxAmmo;
-    }
-
+    }*/
+    /*
     public void AddAmmo()
     {
         currentAmmo+= 1;
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
             currentAmmo = maxAmmo;
         }
         UpdateAmmoCount() ;
-    }
+    }*/
 
     
 }
