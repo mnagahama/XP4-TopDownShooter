@@ -14,6 +14,7 @@ public class Enemy1 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         playerReference = GameObject.FindObjectOfType<PlayerController>();
+
     }
 
     
@@ -24,22 +25,23 @@ public class Enemy1 : MonoBehaviour
         {
             ScoreManager.score += 3;
             Destroy(this.gameObject);
+
         }
 
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = transform.forward * movespeed;    
+        rb.velocity = transform.forward * movespeed;      
     }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Bullet")
         {
-           
-            //Destroy(collision.gameObject);
             health--;
         }
     }
+
+
 
 }

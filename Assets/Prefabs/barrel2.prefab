@@ -133,3 +133,4 @@ MonoBehaviour:
   movespeed: 5
   points: 3
   health: 3
+  barrelAudioControllerPrefab: {fileID: 3509779208603370835, guid: 15f4fbdbb1ad0274ea70a8789b1e76e4, type: 3}

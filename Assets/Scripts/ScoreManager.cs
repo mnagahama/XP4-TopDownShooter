@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
-{   
-    public TextMeshPro scoreText;
+{
+    public Text scoreText;
     public static int score = 0;
     void Start()
     {
-       
+     
     }
-    void Update()
+    void Update() 
     {
         scoreText.text = "Score: " + score;
+
     }
 
 }

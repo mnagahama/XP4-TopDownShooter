@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using TMPro;
+using UnityEngine.UI;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,15 +15,33 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet, gameOver;
     public float shootSpeed = 25;
 
-    public TextMeshPro healthText;
+   public Text healthText;
+   // public TextMeshProUGUI healthText;
     public static int health = 3;
+
+    public Text ammoText;
+   // public TextMeshProUGUI ammoText;
+    public static int currentAmmo;
+    public static int maxAmmo;
+   
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+
         gameOver.SetActive(false);
+        audioSource.playOnAwake = false;
+        currentAmmo = 5;
+        maxAmmo = 5;
+
+        if (currentAmmo > maxAmmo)
+        {
+            currentAmmo = maxAmmo;
+        }
     }
 
     // Update is called once per frame
@@ -32,23 +50,30 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        healthText.text = "Life: " + health;
+         healthText.text = "Life: " + health;
+        //ammoText.text = "Seed: " + currentAmmo + "/" + maxAmmo;
 
         moveInput = new Vector3(x, 0, z);
 
         if (moveInput != Vector3.zero)
         {
             animator.SetBool("isWalking", true);
-         
+
         }
         else
         {
             animator.SetBool("isWalking", false);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && currentAmmo > 0)
+        {
             Shoot(bullet, shootSpeed);
+            audioSource.clip = audioClip;
+            audioSource.Play();
+            currentAmmo--;
+            UpdateAmmoCount();
 
+        }
 
     }
     private void FixedUpdate()
@@ -71,11 +96,40 @@ public class PlayerController : MonoBehaviour
             if (health <= 0)
             {
                 gameOver.SetActive(true);
-            }       
-           
+            }
+
         }
 
     }
-}
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Semente")
+        {
+            ReloadAmmo();
+            Destroy(other.gameObject);
+        }
+    }
+
+    public void ReloadAmmo()
+    {
+        currentAmmo = maxAmmo;
+    }*/
+
+    public void UpdateAmmoCount()
+    {
+        ammoText.text = "Seed: " + currentAmmo + "/" + maxAmmo;
+    }
+
+    public void AddAmmo()
+    {
+        currentAmmo+= 1;
+        if (currentAmmo > maxAmmo)
+        {
+            currentAmmo = maxAmmo;
+        }
+        UpdateAmmoCount() ;
+    }
 
     
+}
