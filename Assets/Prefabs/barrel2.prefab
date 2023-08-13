@@ -103,7 +103,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &453958598338265431
 BoxCollider:
@@ -130,7 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807e555457f871747a52eac842cd3d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 5
+  movespeed: 4
   points: 3
   health: 3
-  barrelAudioControllerPrefab: {fileID: 3509779208603370835, guid: 15f4fbdbb1ad0274ea70a8789b1e76e4, type: 3}

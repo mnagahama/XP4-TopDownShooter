@@ -12,7 +12,7 @@ public class SeedSpawner : MonoBehaviour
     private float seedInterval = 1f;
     private float currentSpawnInterval;
 
-    private int maxSeeds = 4;
+    private int maxSeeds = 7;
     private int currentSeeds = 0;
 
     void Start()
@@ -31,11 +31,12 @@ public class SeedSpawner : MonoBehaviour
 
     void SpawnSeed()
     {
+       
         if (currentSeeds <= maxSeeds && PlayerController.currentAmmo != 5)
         {
             int index = Random.Range(0, spawnPoints.Length);
             Instantiate(seed, spawnPoints[index].position, Quaternion.identity);
-            currentSeeds++;
+           currentSeeds++;
         }
 
     }

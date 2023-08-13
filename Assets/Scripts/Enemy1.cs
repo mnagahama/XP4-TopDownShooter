@@ -6,7 +6,7 @@ public class Enemy1 : MonoBehaviour
 {
     Rigidbody rb;
     PlayerController playerReference;
-    public float movespeed = 2;
+    public float movespeed = 4;
     public int points = 3;
     public int health = 3;
 
