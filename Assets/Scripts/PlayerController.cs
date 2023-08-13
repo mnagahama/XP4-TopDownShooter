@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
     public RestartGame restartGame;
     public SeedSpawner seedSpawner;
+    public MainMenu returnMenu;
+
 
     void Start()
     {
@@ -78,6 +80,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             restartGame.Restart();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            returnMenu.Return();
         }
 
     }
